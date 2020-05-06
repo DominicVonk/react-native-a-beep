@@ -11,7 +11,7 @@ import android.media.AudioManager;
 public class RNReactNativeABeepModule extends ReactContextBaseJavaModule {
 
   private final ReactApplicationContext reactContext;
-  private ToneGenerator toneGen1 = new ToneGenerator(AudioManager.STREAM_MEDIA, 100);
+  private ToneGenerator toneGen1 = new ToneGenerator(AudioManager.STREAM_MUSIC, 100);
   private ToneGenerator toneGen2 = new ToneGenerator(AudioManager.STREAM_SYSTEM, 0);
   public RNReactNativeABeepModule(ReactApplicationContext reactContext) {
     super(reactContext);
