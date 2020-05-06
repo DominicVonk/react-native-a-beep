@@ -11,7 +11,8 @@ import android.media.AudioManager;
 public class RNReactNativeABeepModule extends ReactContextBaseJavaModule {
 
   private final ReactApplicationContext reactContext;
-  private ToneGenerator toneGen1 = new ToneGenerator(AudioManager.STREAM_SYSTEM, 100);
+  private ToneGenerator toneGen1 = new ToneGenerator(AudioManager.STREAM_MEDIA, 100);
+  private ToneGenerator toneGen2 = new ToneGenerator(AudioManager.STREAM_SYSTEM, 0);
   public RNReactNativeABeepModule(ReactApplicationContext reactContext) {
     super(reactContext);
     this.reactContext = reactContext;
@@ -27,6 +28,7 @@ public class RNReactNativeABeepModule extends ReactContextBaseJavaModule {
 
       //toneGen1.startTone(ToneGenerator.TONE_CDMA_PIP,150);
       toneGen1.startTone(soundID);
+      toneGen2.startTone(soundID);
     }
 
   @ReactMethod
@@ -34,5 +36,6 @@ public class RNReactNativeABeepModule extends ReactContextBaseJavaModule {
 
     //toneGen1.startTone(ToneGenerator.TONE_CDMA_PIP,150);
     toneGen1.stopTone();
+    toneGen2.stopTone();
   }
 }
