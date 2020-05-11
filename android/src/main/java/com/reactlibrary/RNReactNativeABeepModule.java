@@ -7,6 +7,10 @@ import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.Callback;
 import android.media.ToneGenerator;
 import android.media.AudioManager;
+import android.media.RingtoneManager;
+import android.media.MediaPlayer;
+import android.net.Uri;
+
 
 public class RNReactNativeABeepModule extends ReactContextBaseJavaModule {
 
@@ -22,7 +26,12 @@ public class RNReactNativeABeepModule extends ReactContextBaseJavaModule {
   public String getName() {
     return "RNReactNativeABeep";
   }
-
+  @ReactMethod
+  public void PlayNotSound() {
+    Uri notification = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+    MediaPlayer mp = MediaPlayer.create(this.reactContext, notification);
+    mp.start(); 
+  }
   @ReactMethod
     public void PlaySysSound(int soundID) {
 
