@@ -14,7 +14,9 @@ class RNBeep {
         this.PlaySysSound(soundID);
         
     }
-
+  static PlayNotSound() {
+        RNReactNativeABeep.PlayNotSound();
+    }
     static PlaySysSound(soundID) {
         if (Platform.OS == "android")
             RNReactNativeABeep.StopSysSound();
